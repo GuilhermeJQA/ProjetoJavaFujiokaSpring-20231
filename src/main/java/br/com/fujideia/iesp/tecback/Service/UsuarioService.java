@@ -1,8 +1,6 @@
 package br.com.fujideia.iesp.tecback.Service;
 
-import br.com.fujideia.iesp.tecback.model.Filme;
 import br.com.fujideia.iesp.tecback.model.Usuario;
-import br.com.fujideia.iesp.tecback.repository.FilmeRepository;
 import br.com.fujideia.iesp.tecback.repository.UsuarioRepository;
 import jakarta.ws.rs.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;

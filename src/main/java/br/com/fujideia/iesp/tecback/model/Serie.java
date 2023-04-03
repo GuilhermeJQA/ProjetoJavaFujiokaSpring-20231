@@ -7,8 +7,8 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "tb_filme")
-public class Filme {
+@Table(name = "tb_serie")
+public class Serie {
 
     @Id
     @GeneratedValue
@@ -16,7 +16,7 @@ public class Filme {
     private String titulo;
     @Column(name = "ds_sinopse", length = 500)
     private String sinopse;
-
+    private Integer episodios;
 
 
 }

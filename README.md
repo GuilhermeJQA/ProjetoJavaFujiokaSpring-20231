@@ -3,5 +3,6 @@ Plataforma de Streaming
 
 Grupo:
 Guilherme José Queiroz de Almeida
-Maria Alice
+Maria Alice Albuquerque da Silva
+Jorge de Melo Ribeiro
 

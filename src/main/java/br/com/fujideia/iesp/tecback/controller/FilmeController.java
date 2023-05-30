@@ -1,7 +1,7 @@
-package br.com.fujideia.iesp.tecback.Web;
+package br.com.fujideia.iesp.tecback.controller;
 
-import br.com.fujideia.iesp.tecback.Service.AvaliaService;
-import br.com.fujideia.iesp.tecback.model.Avalia;
+import br.com.fujideia.iesp.tecback.service.FilmeService;
+import br.com.fujideia.iesp.tecback.model.Filme;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -9,30 +9,30 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/avalia")
+@RequestMapping("/filme")
 
-public class AvaliaController {
+public class FilmeController {
     @Autowired
-    private AvaliaService service;
+    private FilmeService service;
 
     @PostMapping
-    public ResponseEntity<Avalia> salvar(@RequestBody Avalia avalia){
-        avalia = service.salvar(avalia);
-        return ResponseEntity.ok(avalia);
+    public ResponseEntity<Filme> salvar(@RequestBody Filme filme){
+        filme = service.salvar(filme);
+        return ResponseEntity.ok(filme);
     }
     @PutMapping
-    public ResponseEntity<Avalia> alterar(@RequestBody Avalia avalia){
-        avalia = service.alterar(avalia);
-        return ResponseEntity.ok(avalia);
+    public ResponseEntity<Filme> alterar(@RequestBody Filme filme){
+        filme = service.alterar(filme);
+        return ResponseEntity.ok(filme);
     }
 
     @GetMapping
-    public ResponseEntity<List<Avalia>> listar(){
+    public ResponseEntity<List<Filme>> listar(){
         return ResponseEntity.ok(service.listar());
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Avalia> consultar(@PathVariable("id") Integer id){
+    public ResponseEntity<Filme> consultar(@PathVariable("id") Integer id){
         return ResponseEntity.ok(service.consultarPorId(id));
     }
 

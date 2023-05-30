@@ -1,9 +1,7 @@
-package br.com.fujideia.iesp.tecback.Service;
+package br.com.fujideia.iesp.tecback.service;
 
-import br.com.fujideia.iesp.tecback.model.Filme;
-import br.com.fujideia.iesp.tecback.model.Genero;
-import br.com.fujideia.iesp.tecback.repository.FilmeRepository;
-import br.com.fujideia.iesp.tecback.repository.GeneroRepository;
+import br.com.fujideia.iesp.tecback.model.Avalia;
+import br.com.fujideia.iesp.tecback.repository.AvaliaRepository;
 import jakarta.ws.rs.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,17 +12,17 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Service
-public class GeneroService {
+public class AvaliaService {
     @Autowired
-    private GeneroRepository repository;
+    private AvaliaRepository repository;
 
-    public Genero salvar(Genero genero) {
-        genero = this.repository.save(genero);
-        return genero;
+    public Avalia salvar(Avalia avalia) {
+        avalia = this.repository.save(avalia);
+        return avalia;
     }
 
 
-    public List<Genero> listar() {
+    public List<Avalia> listar() {
         return repository.findAll();
     }
 
@@ -39,18 +37,18 @@ public class GeneroService {
         return true;
     }
 
-    public Genero consultarPorId(Integer id){
+    public Avalia consultarPorId(Integer id){
         return repository
                 .findById(id)
                 .orElseThrow(NotFoundException::new);
     }
 
-    public Genero alterar(Genero genero){
-        if(Objects.nonNull(genero.getId())){
-            genero = repository.save(genero);
+    public Avalia alterar(Avalia avalia){
+        if(Objects.nonNull(avalia.getId())){
+            avalia = repository.save(avalia);
         }
         else{throw new NotFoundException();
         }
-        return genero;
+        return avalia;
     }
 }

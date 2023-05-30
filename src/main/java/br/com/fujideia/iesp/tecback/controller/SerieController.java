@@ -1,8 +1,7 @@
-package br.com.fujideia.iesp.tecback.Web;
+package br.com.fujideia.iesp.tecback.controller;
 
-
-import br.com.fujideia.iesp.tecback.Service.UsuarioService;
-import br.com.fujideia.iesp.tecback.model.Usuario;
+import br.com.fujideia.iesp.tecback.service.SerieService;
+import br.com.fujideia.iesp.tecback.model.Serie;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,30 +9,30 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/usuario")
+@RequestMapping("/serie")
 
-public class UsuarioController {
+public class SerieController {
     @Autowired
-    private UsuarioService service;
+    private SerieService service;
 
     @PostMapping
-    public ResponseEntity<Usuario> salvar(@RequestBody Usuario usuario){
-        usuario = service.salvar(usuario);
-        return ResponseEntity.ok(usuario);
+    public ResponseEntity<Serie> salvar(@RequestBody Serie serie){
+        serie = service.salvar(serie);
+        return ResponseEntity.ok(serie);
     }
     @PutMapping
-    public ResponseEntity<Usuario> alterar(@RequestBody Usuario usuario){
-        usuario = service.alterar(usuario);
-        return ResponseEntity.ok(usuario);
+    public ResponseEntity<Serie> alterar(@RequestBody Serie serie){
+        serie = service.alterar(serie);
+        return ResponseEntity.ok(serie);
     }
 
     @GetMapping
-    public ResponseEntity<List<Usuario>> listar(){
+    public ResponseEntity<List<Serie>> listar(){
         return ResponseEntity.ok(service.listar());
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Usuario> consultar(@PathVariable("id") Integer id){
+    public ResponseEntity<Serie> consultar(@PathVariable("id") Integer id){
         return ResponseEntity.ok(service.consultarPorId(id));
     }
 

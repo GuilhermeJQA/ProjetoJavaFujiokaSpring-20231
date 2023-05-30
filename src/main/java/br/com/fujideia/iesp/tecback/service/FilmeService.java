@@ -1,4 +1,4 @@
-package br.com.fujideia.iesp.tecback.Service;
+package br.com.fujideia.iesp.tecback.service;
 
 import br.com.fujideia.iesp.tecback.model.Filme;
 import br.com.fujideia.iesp.tecback.repository.FilmeRepository;

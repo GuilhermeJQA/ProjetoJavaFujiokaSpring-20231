@@ -1,7 +1,7 @@
-package br.com.fujideia.iesp.tecback.Service;
+package br.com.fujideia.iesp.tecback.service;
 
-import br.com.fujideia.iesp.tecback.model.Usuario;
-import br.com.fujideia.iesp.tecback.repository.UsuarioRepository;
+import br.com.fujideia.iesp.tecback.model.Serie;
+import br.com.fujideia.iesp.tecback.repository.SerieRepository;
 import jakarta.ws.rs.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,17 +12,17 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Service
-public class UsuarioService {
+public class SerieService{
     @Autowired
-    private UsuarioRepository repository;
+    private SerieRepository repository;
 
-    public Usuario salvar(Usuario usuario) {
-        usuario = this.repository.save(usuario);
-        return usuario;
+    public Serie salvar(Serie serie) {
+        serie = this.repository.save(serie);
+        return serie;
     }
 
 
-    public List<Usuario> listar() {
+    public List<Serie> listar() {
         return repository.findAll();
     }
 
@@ -37,18 +37,18 @@ public class UsuarioService {
         return true;
     }
 
-    public Usuario consultarPorId(Integer id){
+    public Serie consultarPorId(Integer id){
         return repository
                 .findById(id)
                 .orElseThrow(NotFoundException::new);
     }
 
-    public Usuario alterar(Usuario usuario){
-        if(Objects.nonNull(usuario.getId())){
-            usuario = repository.save(usuario);
+    public Serie alterar(Serie serie){
+        if(Objects.nonNull(serie.getId())){
+            serie = repository.save(serie);
         }
         else{throw new NotFoundException();
         }
-        return usuario;
+        return serie;
     }
 }
